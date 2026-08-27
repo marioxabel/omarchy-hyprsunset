@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "id": "io.github.marioxabel.hyprsunset",
-  "name": "Hyprsunset",
-  "version": "1.0.0",
+  "name": "Hyprsunset Night Light",
+  "version": "1.1.0",
   "author": "marioxabel",
   "license": "MIT",
-  "description": "Control hyprsunset night light from the Omarchy bar with an on/off switch and color temperature slider.",
+  "description": "Night light / red light slider for Omarchy. On/off and color temperature for the built-in hyprsunset filter — nothing extra to install.",
   "kinds": [
     "bar-widget"
   ],
@@ -14,7 +14,7 @@
   },
   "barWidget": {
     "displayName": "Night Light",
-    "description": "Toggle hyprsunset and set the screen color temperature.",
+    "description": "Night light, red light, and hyprsunset temperature slider. Uses Omarchy's built-in hyprsunset.",
     "category": "Appearance",
     "allowMultiple": false,
     "defaultSection": "right",

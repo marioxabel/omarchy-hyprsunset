@@ -1,8 +1,10 @@
-# Hyprsunset
+# Hyprsunset Night Light
 
-Night light controls for the Omarchy Quattro bar. Toggle hyprsunset on or off and set the screen color temperature with a slider.
+Night light / red light controls for the Omarchy bar: an on/off switch and a color temperature slider for **hyprsunset**.
 
-Requires [hyprsunset](https://github.com/hyprwm/hyprsunset), which ships with Omarchy.
+Omarchy already ships hyprsunset. This plugin talks to that native filter (`hyprctl hyprsunset`) — the same one as `omarchy toggle nightlight` and the bar’s night light indicator. Nothing else to install.
+
+Keywords: hyprsunset, night light, nightlight, red light, blue light filter, color temperature.
 
 ## Install
 
@@ -22,7 +24,7 @@ omarchy bar move io.github.marioxabel.hyprsunset --section right
 - Right click the icon to toggle night light
 - Scroll the icon to change temperature
 - In the panel, use the switch to turn night light on or off
-- Drag the slider between 2000K (warm) and 5500K (neutral)
+- Drag the slider between 2000K (warm / red light) and 5500K (neutral)
 - Press Escape to close the panel
 
 Turning night light off restores daylight (6500K), matching Omarchy’s built-in night light. Turning it back on restores your last slider value.
