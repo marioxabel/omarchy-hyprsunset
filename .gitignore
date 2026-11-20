@@ -1,3 +1,5 @@
 *.qmlc
 .qmlcache/
 .DS_Store
+helper/build/
+bin/sunset-ctm.bin

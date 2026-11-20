@@ -1,8 +1,8 @@
 # Hyprsunset Night Light
 
-Night light / red light controls for the Omarchy bar: an on/off switch and a color temperature slider for **hyprsunset**.
+Night light controls for the Omarchy bar. Pick All to set every monitor together, or pick one display and leave the others alone.
 
-Omarchy already ships hyprsunset. This plugin talks to that native filter (`hyprctl hyprsunset`) — the same one as `omarchy toggle nightlight` and the bar’s night light indicator. Nothing else to install.
+Omarchy ships hyprsunset, which can only tint every monitor at once, and Hyprland allows only one color manager. This plugin runs a small helper that takes that role and still answers the hyprsunset socket, so `omarchy toggle nightlight` and the bar indicator keep working. Nothing else to install.
 
 Keywords: hyprsunset, night light, nightlight, red light, blue light filter, color temperature.
 
@@ -21,19 +21,21 @@ omarchy bar move io.github.marioxabel.hyprsunset --section right
 ## Usage
 
 - Left click the bar icon to open or close the panel
-- Right click the icon to toggle night light
-- Scroll the icon to change temperature
-- In the panel, use the switch to turn night light on or off
-- Drag the slider between 2000K (warm / red light) and 5500K (neutral)
+- With more than one display, pick **All** or a single display. One slider follows that choice
+- The header switch turns the selected target on or off
+- Right click the icon, or scroll it, to do the same for the current target
+- The slider runs from 2000K (warm) to 5500K (neutral)
 - Press Escape to close the panel
 
-Turning night light off restores daylight (6500K), matching Omarchy’s built-in night light. Turning it back on restores your last slider value.
+**All** sets every display to the same temperature. A single display leaves the others alone. Turning a display off restores its real colors. Turning it back on restores that display’s last slider value. `omarchy toggle nightlight` still sets every display together.
 
-This plugin talks to the same hyprsunset instance as `omarchy toggle nightlight` and the bar’s night light indicator. It does not overwrite Hyprland config.
+The helper does not overwrite Hyprland config. It replaces a running `hyprsunset` process when it starts, because the compositor can only host one color manager, and it keeps serving `hyprctl hyprsunset`.
+
+The first time the panel runs, it compiles that helper with `gcc` and `wayland-scanner`. Install `base-devel` and `wayland` if that compile fails. No other packages are required.
 
 ## Configure
 
-The last night temperature is stored on the bar widget entry in `~/.config/omarchy/shell.json`:
+The last night temperature for a new display is stored on the bar widget entry in `~/.config/omarchy/shell.json`. Per-display values are stored beside it.
 
 ```sh
 omarchy bar set io.github.marioxabel.hyprsunset nightTemperature 3500
@@ -45,7 +47,7 @@ omarchy bar set io.github.marioxabel.hyprsunset nightTemperature 3500
 omarchy plugin remove io.github.marioxabel.hyprsunset
 ```
 
-Removal only deletes the plugin files under `~/.config/omarchy/plugins/` and takes the widget out of the bar. It does not change hyprsunset, Hyprland config, or your current screen temperature.
+Removal deletes the plugin files under `~/.config/omarchy/plugins/` and takes the widget out of the bar. It does not change Hyprland config. If the helper is still tinting the screens, stop it with `~/.config/omarchy/plugins/io.github.marioxabel.hyprsunset/bin/sunset-ctm stop`.
 
 ## License
 

@@ -1,0 +1,15 @@
+{
+  "panel.title": "Night Light",
+  "panel.turnOn": "Turn on",
+  "panel.turnOff": "Turn off",
+  "panel.daylight": "Daylight",
+  "panel.mixed": "Mixed",
+  "panel.off": "Night Light off",
+  "panel.on": "Night Light %1K",
+  "panel.mixedTip": "Night Light, per display",
+  "panel.builtIn": "Built-in",
+  "panel.displays": "DISPLAYS",
+  "panel.temperature": "TEMPERATURE",
+  "panel.all": "All",
+  "panel.onDisplay": "%1 %2K"
+}

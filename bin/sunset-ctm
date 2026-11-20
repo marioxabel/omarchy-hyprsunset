@@ -1,0 +1,10 @@
+#!/bin/sh
+# Launch the per-monitor helper, building it on first use.
+set -eu
+base=$(CDPATH= cd -- "$(dirname "$0")/.." && pwd)
+bin="$base/bin/sunset-ctm.bin"
+src="$base/helper/sunset-ctm.c"
+if [ ! -x "$bin" ] || [ "$src" -nt "$bin" ]; then
+  "$base/helper/build.sh"
+fi
+exec "$bin" "$@"
