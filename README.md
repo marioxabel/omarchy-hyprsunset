@@ -1,6 +1,6 @@
 # Hyprsunset Night Light
 
-Night light controls for the Omarchy bar. Pick All to set every monitor together, or pick one display and leave the others alone.
+Night light for the Omarchy bar, with control for each monitor on its own. Warm one display and leave the others alone, or pick All and change every screen together.
 
 Omarchy ships hyprsunset, which can only tint every monitor at once, and Hyprland allows only one color manager. This plugin runs a small helper that takes that role and still answers the hyprsunset socket, so `omarchy toggle nightlight` and the bar indicator keep working. Nothing else to install.
 
